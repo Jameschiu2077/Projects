@@ -414,8 +414,10 @@ function backpack_close(){
 function updateinventory(){
     for(g = 0;g<5;g++){
         for(gg = 0;gg<5;gg++){
-            let Cpic = document.getElementById(`invxy|${g}|${gg}`)
-            Cpic.innerHTML = `${ItemData[inventoryData[g][gg][0]]} * ${inventoryData[g][gg][1]}`
+            if(inventoryData[g][gg][1]!=0){
+                let Cpic = document.getElementById(`invxy|${g}|${gg}`)
+                Cpic.innerHTML = `${ItemData[inventoryData[g][gg][0]]} * ${inventoryData[g][gg][1]}`       
+            }
         }
     }
 }

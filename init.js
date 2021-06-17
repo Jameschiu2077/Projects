@@ -162,7 +162,7 @@ inventoryData = [  [ [1, 45],[1, 8],[3, 800],[5, 44],[0, 54] ], [ [0, 0],[0, 0],
                     [ [0,0],[0,0],[0,0],[0,0],[0,0] ],[ [0,0],[0,0],[0,0],[0,0],[0,0] ],
                     [ [0,0],[0,0],[0,0],[0,0],[0,0] ]  ]
 ItemData = ["sword","fire","coin","husky","henry","YT","james"]
-ItemData = []
+ItemDataDescription = []
 
 
 
@@ -174,7 +174,11 @@ ItemData = []
 VWsecOptions = [["EquipmentShop","Props shop","Inn","Bulk trade","pizza"],[],[]]//選項名稱
 VWsecONN = [[7,3,4,6,2],[]]//選項可購買的不同物件數量
 VWsecIN = [ [ 
-    ["a","b","c","d","e","f","g"],["a","b","c"],["a","b","c","d"],["a","b","c","d","e","f"],["a","b"]
+    ["Sword","armor","gun","ICBM","bullet","knife","dagger"]
+    ,["tent","KGB","KFC"]
+    ,["tent","F-5E","B-2","ISS"]
+    ,["flowr","water","iron","gunpowder","wood","meat"]
+    ,["people","child"]
              ], [ ] ]  //選項裡的物件名稱
 
 //init
@@ -369,17 +373,17 @@ function initbackpackWindow(){
         }
     }
                             
-    for(g = 0;g<5;g++){
-        for(gg = 0;gg<5;gg++){
-            let Cpic = document.getElementById(`invxy|${g}|${gg}`)
-            Cpic.innerHTML = '<img src="/picture/map_garss.png" alt="" class="map_picture_teast"></img>'
-        }
-    }
+    // for(g = 0;g<5;g++){
+    //     for(gg = 0;gg<5;gg++){
+    //         let Cpic = document.getElementById(`invxy|${g}|${gg}`)
+    //         // Cpic.innerHTML = '<img src="/picture/map_garss.png" alt="" class="map_picture_teast"></img>'
+    //     }
+    // }
     backpackWindowInventory.appendChild(backpackWindowInventoryItemDescription)
     // backpackWindowInventory.innerHTML = BPWIA
     
     // backpackWindow.appendChild(backpackWindow_next);
     backpackWindow.style.display = "none";
     backpacknow_n_m = true;
-    updateinventory();
+    
 }
