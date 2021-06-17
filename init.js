@@ -149,7 +149,7 @@ backPackDivList = []
 ///
 let talktext,part,KeycodeN,plotRate,maprow,i,ii,travelx,travely,thing,Mapthing,mapdata_long,startPlacex,startPlacey,DS,date,promptnow,prompt_n_m,mainmission,money;
 let textRate = 0;
-let nBAMove = true, travel_Start = false,openbackpack = false,openvillagewindow = false;
+let nBAMove = true, travel_Start = false,openbackpack = false,openvillagewindow = false,opensecwindow=false;
 let typing_text = "";
 startPlacex=0;
 startPlacey=0;

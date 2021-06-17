@@ -64,32 +64,39 @@ function map_keycode_EventListener(event){
             travel(startPlacex,startPlacey-1,"up");
             //alert('UP was pressed');
         }
-
+        if(event.keyCode == 66){
+            openbackpack = !openbackpack
+            if(openbackpack){
+    
+                backpack(-510,false)
+            }else{
+                backpack_close()
+            }
+        }
         console.log(event.keyCode)
     }
     if(event.keyCode == 66){
         openbackpack = !openbackpack
         if(openbackpack){
-            if(travel_Start){
-                backpack(-630)
-            }else{
-                backpack(-510)
-            }
 
+            backpack(-510,false)
         }else{
             backpack_close()
         }
     }
+
 }
 document.addEventListener('keydown', unevent);
+
 function unevent(event){
     if(event.keyCode == 66){
         openbackpack = !openbackpack
         if(openbackpack){
-            if(travel_Start){
-                backpack(-630)
+            backpack(-630,false)
+            if(opensecwindow){
+                backpack(-510,false)
             }else{
-                backpack(-510)
+                backpack(-630,false)
             }
 
         }else{
@@ -99,6 +106,13 @@ function unevent(event){
 }
 
 function VW_switchWindowController(villagenumber,optionnumber){
+    opensecwindow = true
+    if(openbackpack){
+        openbackpack = false
+        backpack_close()
+    }
+    
+    
     openvillagewindow = true
     mapWindow.style.display = 'none';
     travelWindow.style.display = 'none';
@@ -127,20 +141,20 @@ function VW_switchWindowController(villagenumber,optionnumber){
             document.getElementById(`secbutton|${u}`).style.display = 'none'
         }
     }
+    backpack(-510,true)
     ok()
 }
 
 
 function ok(){
     console.log("done")
+    backpack(-510,true)
 }
 
 
-
-
-
-
 function VWsecwindowC(){
+    opensecwindow = false
+    backpack(-630,true)
     map_intovillage()
 }
 
@@ -246,6 +260,8 @@ function village_ES(){
 }
 function village_leave(){
     villageWindow.style.display = 'none'
+
+    
     if(startPlacex+14==4 && startPlacey+6 ==3){
         travel_start(-10,-3)
     }
@@ -378,13 +394,17 @@ function PlotEND(){
 }
 
 
-function backpack(x){
-    backpackWindow.style.display = "block";
-    console.log("working")
-    // backpackWindow_text.innerHTML = "_";
-    backpacknow = true;
-    backpackWindow.style.marginTop= `${x}px`
-
+function backpack(x,only_adjust){
+    if(only_adjust){
+        backpackWindow.style.marginTop= `${x}px`
+    }
+    else{
+        backpackWindow.style.display = "block";
+        console.log("working")
+        // backpackWindow_text.innerHTML = "_";
+        backpacknow = true;
+        backpackWindow.style.marginTop= `${x}px`
+    }
 }
 function backpack_close(){
     backpacktnow = false;
