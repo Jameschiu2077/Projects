@@ -65,7 +65,14 @@ function map_keycode_EventListener(event){
             //alert('UP was pressed');
         }
         if(event.keyCode == 66){
-            backpack();
+            openbackpack = !openbackpack
+            if(openbackpack){
+                backpack()
+            }else{
+                backpack_close()
+            }
+            
+
         }
         console.log(event.keyCode)
     }
@@ -367,13 +374,15 @@ function PlotEND(){
 }
 
 
-async function backpack(){
+function backpack(){
     backpackWindow.style.display = "block";
     console.log("working")
     // backpackWindow_text.innerHTML = "_";
     backpacknow = true;
     
-    await waitingKeypress();
+
+}
+function backpack_close(){
     backpacktnow = false;
     backpackWindow.style.display = 'none'
 }
