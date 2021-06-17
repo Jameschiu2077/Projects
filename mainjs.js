@@ -369,6 +369,7 @@ function PlotEND(){
 
 async function backpack(){
     backpackWindow.style.display = "block";
+    console.log("working")
     // backpackWindow_text.innerHTML = "_";
     backpacknow = true;
     
