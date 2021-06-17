@@ -64,22 +64,42 @@ function map_keycode_EventListener(event){
             travel(startPlacex,startPlacey-1,"up");
             //alert('UP was pressed');
         }
-        if(event.keyCode == 66){
-            openbackpack = !openbackpack
-            if(openbackpack){
-                backpack()
-            }else{
-                backpack_close()
-            }
-            
 
-        }
         console.log(event.keyCode)
+    }
+    if(event.keyCode == 66){
+        openbackpack = !openbackpack
+        if(openbackpack){
+            if(travel_Start){
+                backpack(-630)
+            }else{
+                backpack(-510)
+            }
+
+        }else{
+            backpack_close()
+        }
+    }
+}
+document.addEventListener('keydown', unevent);
+function unevent(event){
+    if(event.keyCode == 66){
+        openbackpack = !openbackpack
+        if(openbackpack){
+            if(travel_Start){
+                backpack(-630)
+            }else{
+                backpack(-510)
+            }
+
+        }else{
+            backpack_close()
+        }
     }
 }
 
 function VW_switchWindowController(villagenumber,optionnumber){
-
+    openvillagewindow = true
     mapWindow.style.display = 'none';
     travelWindow.style.display = 'none';
     villageWindow.style.display = 'none';
@@ -116,23 +136,7 @@ function ok(){
 }
 
 
-function sec0001(){
-    VW_switchWindowController(0,0)
-}
 
-function sec0002(){
-    VW_switchWindowController(0,1)
-}
-
-function sec0003(){
-    VW_switchWindowController(0,2)  
-}
-function sec0004(){
-    VW_switchWindowController(0,3)
-}
-function sec0005(){
-    VW_switchWindowController(0,4)
-}
 
 
 
@@ -228,7 +232,6 @@ function village(village_where){
         villageWindow_goout_button.onclick = village_leave;
         villageWindow_Propsshop_button.onclick = village_propsshop;
     }
-    
 }
 
 function village_propsshop(){
@@ -250,6 +253,7 @@ function village_leave(){
 //效能待優化
 function loadmap(x,y){//xy|6|14
     // console.log(`now you at (${x+14},${y})||${mapdata[x][y]}`);
+    openvillagewindow = false
     mapWindow.style.display = 'block';
     travelWindow.style.display = 'block';
     Mapthing = document.getElementById("xy|6|14")
@@ -374,12 +378,12 @@ function PlotEND(){
 }
 
 
-function backpack(){
+function backpack(x){
     backpackWindow.style.display = "block";
     console.log("working")
     // backpackWindow_text.innerHTML = "_";
     backpacknow = true;
-    
+    backpackWindow.style.marginTop= `${x}px`
 
 }
 function backpack_close(){
