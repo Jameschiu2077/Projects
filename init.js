@@ -187,7 +187,7 @@ function init(){
     initvillage();
     Gamestartmenu();
     initbackpackWindow();
-
+    updateinventory()
 }
 
 function initpromptWindow(){
