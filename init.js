@@ -156,6 +156,16 @@ startPlacey=0;
 dateTime = [0,9,2,6]
 secondwindowbuttons = []
 
+
+//玩家資料
+inventoryData = [  [ [1, 45],[1, 8],[3, 800],[5, 44],[0, 54] ], [ [0, 0],[0, 0],[0, 0],[0 ,0],[0, 0] ],
+                    [ [0,0],[0,0],[0,0],[0,0],[0,0] ],[ [0,0],[0,0],[0,0],[0,0],[0,0] ],
+                    [ [0,0],[0,0],[0,0],[0,0],[0,0] ]  ]
+ItemData = ["sword","fire","coin","husky","henry","YT","james"]
+ItemData = []
+
+
+
 // 新的
 // VW 是villagewindow的簡寫
 // sec 是次視窗的簡寫
@@ -371,4 +381,5 @@ function initbackpackWindow(){
     // backpackWindow.appendChild(backpackWindow_next);
     backpackWindow.style.display = "none";
     backpacknow_n_m = true;
+    updateinventory();
 }

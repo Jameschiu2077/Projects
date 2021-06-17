@@ -371,7 +371,9 @@ body{
     background-color: aliceblue;
     margin-top: 50px;
 }
+
 .Invgrid{
+    color: #fff;
     width: 90px;
     height: 90px;
     background-color: black;
